@@ -65,9 +65,10 @@
     private int Dequeue() {
         if (_queue.Count <= 0)
             throw new IndexOutOfRangeException();
-
-        var value = _queue[1];
-        _queue.RemoveAt(1);
+            
+        int index = _queue.Count - 1; //Line added to fix defect
+        var value = _queue[index]; //Changed from 0 to index to fix defect
+        _queue.RemoveAt(index); //Changed from 0 to index to fix defect
         return value;
     }
 }
